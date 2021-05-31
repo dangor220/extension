@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "version": "2.2.0",
+    "name": "Schedule of Pskov State University",
+    "description": "The extension allows you to view the schedule of classes and teachers for a specific date.",
+    "permissions": [
+        "storage"
+    ],
+    "icons": {
+        "16": "img/pgu16.png",
+        "32": "img/pgu32.png",
+        "128": "img/pgu128.png"
+    },
+  "browser_action": {
+        "default_icon": "img/pgu3.png",
+        "default_popup": "popup.html"
+
+    }
+}

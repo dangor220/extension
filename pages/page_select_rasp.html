@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+
+<head>
+    <!-- -->
+    <meta charset="utf-8">
+    <title>Check the schedule</title>
+    <link href="../style/page_button_style.css" rel="stylesheet">
+    <link href="../style/page_rasp_style.css" rel="stylesheet">
+    <script src="../jquery-3.5.1.min.js"></script>
+    <style media="screen">
+        body {
+            /* transition: 1s;
+              opacity: 0; */
+            min-width: 620px;
+            min-height: 452px;
+            max-width: 620px;
+            max-height: 420px;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .table_rasp {
+            overflow-y: auto;
+        }
+
+        .table_rasp table {
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .table_rasp table th:first-child {
+            text-align: center;
+            width: 90px;
+        }
+
+        .table_rasp table td:nth-of-type(2n) {
+            text-align: center;
+        }
+
+        .table_rasp table th:nth-of-type(2n) {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table_rasp table td:nth-of-type(2n+1) {
+            text-align: center;
+        }
+
+        .table_rasp table th:nth-of-type(2n+1) {
+            text-align: center;
+        }
+
+        .table_rasp table td:nth-of-type(2n+4) {
+            width: 120px;
+        }
+
+        .table_rasp table td:first-child {
+            text-align: center;
+            width: 90px;
+        }
+
+        .date_ {
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+        }
+
+        .lesson {
+            font-style: italic;
+            font-size: 17px;
+        }
+
+        .tableStyle td {
+            background: #BB2530;
+            opacity: 0.9;
+        }
+
+        .table_rasp table th {
+            text-align: left;
+            padding: 5px;
+        }
+
+        .table_rasp table td {
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .stand-mb {
+            margin-bottom: 30px
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .select {
+            box-sizing: border-box;
+            position: relative;
+            margin: 12px;
+            cursor: pointer;
+            width: 220px;
+        }
+
+        .select * {
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .select span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 220px;
+            padding: 10px;
+            border: 1px solid #d6d6d6;
+            border-radius: 5px;
+        }
+
+        .select span::after {
+            content: '';
+            position: relative;
+            height: 0;
+            width: 0;
+            border: 5px solid transparent;
+            border-top: 5px solid #333;
+        }
+
+        .select div {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 40px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 15px;
+            background: #fff;
+            border: 0.5px solid #f1f1f1;
+            border-top: hidden;
+            z-index: 99;
+            min-height: 40px;
+        }
+
+        .select div p {
+            background: #fff;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .select div p:hover {
+            background: #f1f1f1
+        }
+
+        body {
+            padding: 40px;
+            max-height: 9999px !important;
+            padding-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="selectors">
+        <div class="center stand-mb">
+            <div class="select s-days" id="form_learning">
+                <span>Choose a shape</span>
+                <div class="hide">
+                    <p value="och">Full-time</p>
+                    <p value="zaoch">Extramural</p>
+                </div>
+            </div>
+        </div>
+        <div class="center stand-mb">
+            <div class="select s-days hide" id="select_institut">
+                <span>Choose an institute</span>
+                <div class="hide"></div>
+            </div>
+        </div>
+        <div class="center loader-1 hide stand-mb">
+            <p style="font-size: 20px">Loading...</p>
+        </div>
+        <div class="center stand-mb">
+            <div class="select s-days hide" id="select_group">
+                <span>Выберите группу</span>
+                <div class="hide"></div>
+            </div>
+        </div>
+        <div class="button_style">
+            <button class="button hide" type="button" id="check_rasp">Check the schedule!</button>
+            <a href="../popup.html"><button class="button_back" type="button_back" name="button_back">To the
+                    main</button></a>
+        </div>
+    </div>
+    <div class="rasp-box hide">
+        <div class="flex_box">
+            <div class="box_rasp">
+                <h1 class="rasp" id="rasp_group">Group schedule: </h1>
+                <h2 class="rasp" id="rasp_na">on the: </h2>
+            </div>
+            <div class="box_group_chisl">
+                <p class="group" id="chisl_group">...</p>
+                <p class="chisl" id="chisl_num"><input type="date" id="cal" value=""></p>
+            </div>
+        </div>
+        <div class="table_rasp">
+            <table>
+                <thead>
+                    <th>№</th>
+                    <th>Item name</th>
+                    <th>A type</th>
+                    <th>Full-Name teacher</th>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="button_style">
+            <button class="button" type="button" id="rasp_week">Show for a week</button>
+            <a href="../popup.html"><button class="button_back" type="button_back" name="button_back">Back</button></a>
+        </div>
+    </div>
+    <script src="../script/script_select_rasp.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+/* body */
+body {
+  transition: 1s;
+  opacity: 0;
+  max-width: 700px;
+  max-height: 500px;
+  min-width: 700px;
+  min-height: 500px;
+  border: 5px solid;
+  border-radius: 10px 0 10px 20px;
+  border-color: #BB2530;
+}
+/* logo pskovgu  */
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.logo_name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 50px;
+  line-height: 80px;
+  margin-left: 20px;
+  margin-top: 50px;
+  max-width: 350px;
+  color: white;
+  text-shadow: 1px 1px #732372, 1px -1px #732372, -1px 1px #732372, -1px -1px #732372, 3px 3px 6px rgba(0,0,0,.5);
+  letter-spacing: 0.1em;
+}
+.logo_img {
+  max-width: 150px;
+  margin-top: 20px;
+  margin-left: 60px;
+}
+.psk_logo {
+  transition: .2s linear;
+}
+.psk_logo:hover {
+  -webkit-filter: drop-shadow(2px 4px 4px #000);
+  filter: drop-shadow(2px 4px 4px #000);
+  width: 176%;
+}
+/* rasp teachers & lessons */
+.cont_one {
+  margin-top: 40px;
+  max-width: 490px;
+  min-width: 490px;
+
+}
+.cont_one a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 20px;
+  line-height: 60px;
+  font-size: 35px;
+  letter-spacing: 0.1em;
+  color: #BB2530;
+  transition: .2s linear;
+}
+.cont_one a:hover {
+  text-shadow: 1px 1px #732372, 1px -1px #732372, -1px 1px #732372, -1px -1px #732372, 3px 3px 6px rgba(0,0,0,.5);
+}
